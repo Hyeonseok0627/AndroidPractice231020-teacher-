@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="400dp"
         android:layout_height="300dp"
-        android:src="@drawable/wine"/>
+        android:src="@drawable/window"/>
 
     <TextView
         android:layout_width="match_parent"

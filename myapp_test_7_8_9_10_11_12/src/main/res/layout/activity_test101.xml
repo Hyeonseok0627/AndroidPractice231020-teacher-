@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--뷰에 내용이 잘리면 안되니 해당 ScrollView 태그 사용-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ch10_Test.Test10_1Activity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!--소리 확인 테스트-->
+            <Button
+                android:id="@+id/soundTestBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="소리 확인 테스트"/>
+
+            <!--커스텀 다이얼 로그 테스트 목록 요소 라디오-->
+            <Button
+                android:id="@+id/customDialogBtn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="커스텀 다이얼 로그 테스트 목록 요소 라디오"/>
+
+            <!--커스텀 다이얼 로그 테스트 목록 요소 체크박스-->
+            <Button
+                android:id="@+id/customDialogBtn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="커스텀 다이얼 로그 테스트 목록 요소 체크박스"/>
+
+            <!--커스텀 다이얼 로그 테스트 목록 요소 선택-->
+            <Button
+                android:id="@+id/customDialogBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="커스텀 다이얼 로그 테스트 목록 요소 선택"/>
+
+
+            <!--커스텀 다이얼 로그 테스트-->
+            <Button
+                android:id="@+id/customDialogBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="커스텀 다이얼 로그 테스트"/>
+
+            <!--기본 날짜/시간 위젯이 아닌 외부 위젯을 가져온 부분-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="2">
+                <AnalogClock
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <DigitalClock
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="2">
+                <Chronometer
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chronometer1"
+                    android:format="시간 측정 : %s"
+                    android:gravity="center"
+                    android:textSize="30dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TimePicker
+                    android:timePickerMode="spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <DatePicker
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:datePickerMode="spinner"/>
+            </LinearLayout>
+
+            <!--시간 다이얼로그 확인-->
+            <Button
+                android:id="@+id/timeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간 다이얼로그 확인"/>
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/MyTextCss"/>
+
+            <!--날짜 다이얼로그 확인-->
+            <Button
+                android:id="@+id/dateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="날짜 다이얼로그 확인"/>
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/MyTextCss"/>
+
+            <!--토스트 보여지고 , 사라지고 후처리 테스트-->
+            <Button
+                android:id="@+id/testToastBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="토스트 보여지고 , 사라지고 후처리 테스트"
+                style="@style/MyTextCss"/>
+
+            <ImageView
+                android:id="@+id/testImgRetangle"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/shapetest"/>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="소스 코드에서 정적 자원 가져오기 예제"
+                android:textSize="20sp"
+                android:textColor="#2196F3"
+                android:fontFamily="@font/bmyeonsung"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="#2196F3"
+                android:fontFamily="@font/bmyeonsung"/>
+
+            <ImageView
+                android:layout_width="@dimen/profile_img_width"
+                android:layout_height="@dimen/profile_img_height"
+                android:src="@drawable/kakao"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="글자색, 배경, 재사용"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/main_text_color"
+                android:background="@color/main_text_bgcolor"
+                android:fontFamily="@font/bmyeonsung"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여러 css 요소를 style 속성으로 한번에 가져오기"
+                style="@style/MyTextCss" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/arrow_down_float">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

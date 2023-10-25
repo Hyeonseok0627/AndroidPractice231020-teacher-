@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+    이용자 입장, 현재 앱에서 -> 외부 앱의 기능을 많이 이용함.
+    시스템 앱 ex) gps, 갤러리, 카메라, 캘린더, 등등 이용을 많이함.
+    특정 앱에 접근을 신청하는 양식.
+    1) 접근 시, 접근 레벨이 낮은 경우 : 이용자의 허가를 받지 않고 이용함.
+    2) 접근 시, 접근 레벨이 높은 경우 : 이용자의 허가를 받는 경우. -> 위치, 정확한 위치
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 일반적인 위치 설정 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 정확한 위치 설정 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 13 버전 이후 변경된 이미지 저장소 접근 허용 양식 -->
+    <!--Test10_2Activity에서 manager.notify(11, builder.build()) 이거에서 자동 생성해서 생김-->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -8,6 +22,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
+        <activity
+            android:name=".ch10_Test.Test10_1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ch10_Test.Test10_2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ch9_Test.Test9Activity"
+            android:exported="true" />
         <activity
             android:name=".ch8_Test.Test8Activity"
             android:exported="true" />
