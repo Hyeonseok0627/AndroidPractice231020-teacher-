@@ -23,11 +23,22 @@ class Test11_ToolBarActivity : AppCompatActivity() {
         // 이식 작업, 재사용
         //액션바에 업버튼 붙이기
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        // 일반 텍스트 뷰(현재 sdk 24버전 사용 중)와, 호환성을 고랴한 뷰의 차이점 소개.
+        // lineHeight는 sdk 28 버전 이후로 추가된 기능.
+        // 이렇게 일반 텍스트 뷰를 사용하면 sdk 버전이 안 맞으면 사용 중인 버전 이후에 나온 lineHeight 같은 것을 사용 못함
+//        binding.testView.lineHeight = 50
+
+        // 호환성을 고려한 텍스트 뷰에서, lineHeight를 사용해보기.
+        // 이렇게 하면 sdk 버전 상관없이 사용가능
+        binding.testCompView.lineHeight = 50
+
     }
 
     // 액션바  업버튼 클릭 이벤트 처리.
     override fun onSupportNavigateUp(): Boolean {
-        Log.d("lsy","test")
+        Log.d("lhs","test")
         onBackPressed()
         return super.onSupportNavigateUp()
     }
@@ -39,14 +50,14 @@ class Test11_ToolBarActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.toolbar_menu,menu)
 
         // 검색 뷰에, 이벤트 추가하기.
-        val menuItem = menu?.findItem(R.id.menu_main_search)
+        val menuItem = menu?.findItem(R.id.menu_toolbar_search)
         // menuItem 의 형을 SearchView 타입으로 변환, 형변환
         // SearchView -> 자동 임포트 주의 -> 제트팩이 아닌 일반 android 로 임포트 하면 안됨.
         val searchView = menuItem?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 //검색어가 변경시 마다, 실행될 로직을 추가.
-                Log.d("lsy","텍스트 변경시 마다 호출 : ${newText} ")
+                Log.d("lhs","텍스트 변경시 마다 호출 : ${newText} ")
                 return true
             }
 

@@ -2,4 +2,6 @@
     <string name="app_name">MyApp_Test_7_8_9_10_11_12</string>
     <string name="app_intro">Hello Testing App!!</string>
     <string name="long_text">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

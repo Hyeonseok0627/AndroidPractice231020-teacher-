@@ -19,9 +19,26 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary">
+            style="@style/MyToolBarCss">
 
         </androidx.appcompat.widget.Toolbar>
+
+<!--        텍스트 뷰 api 레벨 28 버전 기점으로 기능이 추가되었는데
+        setLineHeight()-->
+        <TextView
+            android:id="@+id/testView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일반 뷰 테스트"
+            style="@style/MyTextCss"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/testCompView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="호환성을 고려한 텍스트 뷰"
+            style="@style/MyTextCss"/>
 
     </LinearLayout>
 

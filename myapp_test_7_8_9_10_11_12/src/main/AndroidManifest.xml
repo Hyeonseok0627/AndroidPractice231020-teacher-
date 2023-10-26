@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 일반적인 위치 설정 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 정확한 위치 설정 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 13 버전 이후 변경된 이미지 저장소 접근 허용 양식 -->
-    <!-- Test10_2Activity에서 manager.notify(11, builder.build()) 이거에서 자동 생성해서 생김 -->
+    <!-- Test10_2Activity에서 manager.notify(11, builder.build()) 이것에서 자동 생성해서 생김 -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -22,6 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
+        <activity
+            android:name=".ch11_Test.Test11_FragmentActivity"
+            android:exported="true" />
         <activity
             android:name=".ch11_Test.Test11_ToolBarActivity"
             android:exported="true" />
