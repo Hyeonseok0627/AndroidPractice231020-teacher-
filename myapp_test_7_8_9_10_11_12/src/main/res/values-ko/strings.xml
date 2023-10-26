@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="app_name">MyApp_Test_7_8_9_10_11_12</string>
+    <string name="long_text">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</string>
     <string name="app_intro">안녕하세요, 앱 테스팅!!</string>
 </resources>

@@ -131,9 +131,21 @@ class Test10_2Activity : AppCompatActivity() {
             )
 
             // 프로그래스 진행 바 확인 해보기.
+            // indeterminates: true로 하면 표시줄이 계속 진행되고 있는 것처럼 표시해줌 / false로 하면 표시줄이 진행정도에 따라 게이지바가 차게 되는 방식
             builder.setProgress(100,0,false)
             thread {
                 for (i in 1..100) {
+
+                    //언제든지 완료된 작업량을 추정할 수 있는 경우 setProgress(max, progress, false)를 호출하여
+                    // 그림 4와 같이 표시기의 '확정된' 형태를 사용하세요.
+                    // 첫 번째 매개변수는 '완료' 값(예: 100)이고
+                    // 두 번째 매개변수는 현재 진행률이며
+                    // 마지막 매개변수는 이 진행률 표시줄이 확정된 진행률 표시줄임을 나타냅니다.
+                    //
+                    //작업이 진행되면 업데이트된 progress 값으로
+                    // setProgress(max, progress, false)를 계속 호출하고 알림을 다시 발행합니다.
+
+
                     builder.setProgress(100,i,false)
                     manager.notify(11,builder.build())
                     SystemClock.sleep(100)
@@ -147,6 +159,20 @@ class Test10_2Activity : AppCompatActivity() {
             bigStyle.bigPicture(bigPicture)
             builder.setStyle((bigStyle))
 
+
+            // 긴 텍스트
+            val bigTextStyle = NotificationCompat.BigTextStyle()
+            bigTextStyle.bigText(resources.getString(R.string.long_text))
+            builder.setStyle(bigTextStyle)
+
+
+            // 박스 스타일 형식
+            val boxStyle = NotificationCompat.InboxStyle()
+            boxStyle.addLine("1코스 - 짜장면")
+            boxStyle.addLine("2코스 - 우동")
+            boxStyle.addLine("3코스 - 잡채밥")
+            boxStyle.addLine("4코스 - 짬뽕")
+            builder.setStyle(boxStyle)
 
 
             // 알림 발생 시키기
