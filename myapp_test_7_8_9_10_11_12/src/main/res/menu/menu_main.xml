@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!--메뉴2번과 4번은 오버플로우 밖으로 뺌-->
+    <!--그래서, 오버플로우에선 메뉴1번과 메뉴3번만 나옴-->
+    <!--app:showAsAction="never" 이거나 이게 아예없으면 오버플로우 안에 있게 됨-->
     <item
         android:id="@+id/menu_main1"
         android:title="메뉴1"/>

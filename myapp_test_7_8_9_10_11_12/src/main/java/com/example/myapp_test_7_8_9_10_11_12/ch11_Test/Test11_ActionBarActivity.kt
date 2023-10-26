@@ -39,15 +39,15 @@ class Test11_ActionBarActivity : AppCompatActivity() {
 
     // 오버플로우 메뉴 이벤트 핸들러 추가하기.
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
-        0 -> {
+        R.id.menu_main1 -> {
             Toast.makeText(this@Test11_ActionBarActivity,"메뉴1 클릭됨",Toast.LENGTH_SHORT).show()
             true
         }
-        1 -> {
+        R.id.menu_main2 -> {
             Toast.makeText(this@Test11_ActionBarActivity,"메뉴2 클릭됨",Toast.LENGTH_SHORT).show()
             true
         }
-        2 -> {
+        R.id.menu_main3 -> {
             Toast.makeText(this@Test11_ActionBarActivity,"메뉴3 클릭됨",Toast.LENGTH_SHORT).show()
             true
         }
