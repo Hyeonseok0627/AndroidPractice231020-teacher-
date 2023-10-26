@@ -15,6 +15,7 @@ import androidx.core.app.RemoteInput
 class ReplyReceiver : BroadcastReceiver() {
 // 알림에서 원격으로 입력한 내용을 받아서 수신기 역할
     override fun onReceive(context: Context, intent: Intent) {
+    // Test10_2Activity의 "key_text_reply"이건 공백도 인식해서 똑같게 ReplyReceiver에 적혀야 넘어옴
         val replyTxt = RemoteInput.getResultsFromIntent(intent)?.getCharSequence("key_text_reply")
         Log.d("lhs", "replyTxt : $replyTxt")
 

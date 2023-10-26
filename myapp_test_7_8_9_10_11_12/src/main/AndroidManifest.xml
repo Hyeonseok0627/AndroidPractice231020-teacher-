@@ -22,6 +22,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
+
+        <receiver
+            android:name=".ch10_Test.ReplyReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".ch10_Test.Test10_1Activity"
             android:exported="true" />
