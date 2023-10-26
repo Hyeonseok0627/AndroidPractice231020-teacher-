@@ -1,18 +1,23 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.MyApplication_231020_test1" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!--툴바를 사용하기 위해 이전에 쓴 액션바를 없애고 액션바를 안쓰겠다는 이걸로 변경-->
+    <style name="Base.Theme.MyApplication_231020_test1" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!--<item name="colorPrimary">#03A9F4</item>-->
+         <!--<item name="colorPrimary">#03A9F4</item>-->
     </style>
 
     <style name="Theme.MyApplication_231020_test1" parent="Base.Theme.MyApplication_231020_test1" />
 
-    <!--기본적인 텍스트를 만들고 css 적용시 기본 틀 (부모 사용할 예정)-->
+<!--    기본적인 텍스트를 만들고 css 적용시 기본 틀(부모로 사용할 예정)-->
     <style name="MyTextCss">
         <item name="android:textSize">@dimen/text_size</item>
         <item name="android:textColor">@color/main_text_color</item>
         <item name="android:background">@color/main_text_bgcolor</item>
         <item name="android:fontFamily">@font/bmyeonsung</item>
+    </style>
+
+    <style name="MyToolBarCss">
+        <item name="android:background">@color/main_text_color</item>
     </style>
 
 </resources>

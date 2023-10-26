@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
+            android:name=".ch11_Test.Test11_ToolBarActivity"
+            android:exported="true" />
+        <activity
             android:name=".ch11_Test.Test11_ActionBarActivity"
             android:exported="true" />
 

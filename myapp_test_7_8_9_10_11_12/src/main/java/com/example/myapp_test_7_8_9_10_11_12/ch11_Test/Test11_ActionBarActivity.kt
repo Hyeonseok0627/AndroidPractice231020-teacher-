@@ -25,7 +25,7 @@ class Test11_ActionBarActivity : AppCompatActivity() {
 
         }
 
-    // 액션바 클릭 이벤트 처리.
+    // 액션바 업버튼 클릭 이벤트 처리.
     override fun onSupportNavigateUp(): Boolean {
         Log.d("lhs","test")
         onBackPressed() // 뒤로가기(이전화면으로 넘어가기)
