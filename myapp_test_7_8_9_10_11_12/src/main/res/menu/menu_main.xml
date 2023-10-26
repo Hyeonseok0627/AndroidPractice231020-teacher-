@@ -24,5 +24,12 @@
         android:title="메뉴4"
         app:showAsAction="ifRoom"/>
 
+    <!--검색 기능, 시스템의 위젯-->
+
+    <item
+        android:id="@+id/menu_main_search"
+        android:title="검색"
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
 </menu>
