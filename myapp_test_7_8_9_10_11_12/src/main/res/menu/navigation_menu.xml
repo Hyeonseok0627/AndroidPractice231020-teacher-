@@ -4,10 +4,10 @@
     <item android:icon="@drawable/baseline_login_20"
         android:title="로그인"/>
 
-    <item android:icon="@drawable/baseline_dashboard_24"
+    <item android:icon="@drawable/baseline_logout_24"
         android:title="로그아웃"/>
 
-    <item android:icon="@drawable/baseline_dashboard_24"
+    <item android:icon="@drawable/baseline_logout_24"
         android:title="메인가기"/>
 
 

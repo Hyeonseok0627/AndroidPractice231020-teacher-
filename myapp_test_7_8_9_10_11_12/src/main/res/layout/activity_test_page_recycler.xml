@@ -88,6 +88,18 @@
 
             </LinearLayout>
 
+            <!--플로팅 액션 버튼 추가하기-->
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:text = "클릭시 해당 문자열 출력해보기."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/baseline_create_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="20dp"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

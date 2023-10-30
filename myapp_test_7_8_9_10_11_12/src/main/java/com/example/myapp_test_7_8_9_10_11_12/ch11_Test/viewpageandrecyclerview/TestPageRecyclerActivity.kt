@@ -17,54 +17,61 @@ import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityTestPageRecycle
 class TestPageRecyclerActivity : AppCompatActivity() {
     lateinit var binding: ActivityTestPageRecyclerBinding
     var newDataNumber = 11
-    // 액션 버튼 토글(스위치), 서랍화면 나오게 하는 버튼
+    // 액션 버튼 토글(스위치), 서랍화면 나오게 하는 버튼.(전역으로 설정해서 어디서든 사용하도록 함)
     lateinit var toggle : ActionBarDrawerToggle
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTestPageRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //1)툴바, 2)드로워, 3)드로워-네비게이션, 4)플로팅 액션 버튼
-        //5)앱바, 6)탭레이아웃
+        //1)툴바 , 2) 드로워 3) 드러워-네비게이션 4) 플로팅 액션 버튼
+        // 5) 앱바 6) 탭레이아웃
 
-
-        // 1) 툴바 붙이기, Test11_ToolBarActivity 재사용
+        //1) 툴바 붙이기, Test11_ToolBarActivity 재사용
         setSupportActionBar(binding.toolbar)
 
-        // 1-2) 툴바 오버플로우 메뉴 붙이기
-        // 재료 필요, res -> 메뉴 toolbar_menu를 재사용함.
+        //1)-2 ,툴바 오버플로우 메뉴 붙이기
+        // 재료 , res -> 메뉴 toolbar_menu, 재사용함.
 
-        // 2) 드로워 화면은 뷰에서 설정 했음.
-        // 뷰 1: 본문 뷰 2: 서랍 화면
+        // 2)드로워 화면은 뷰에서 설정 했음.
+        //  뷰1 : 본문, 뷰2 : 서랍 화면
 
         // 3) 드로워 네비게이션 뷰 추가 설정. -> 뷰에서 작업
         // 재료 - 1) 네비게이션 헤더 2) 본문 : res -> 메뉴
 
-
         // 3) 이벤트 핸들러 추가하기.
         // 각 아이템 요소 클릭 이벤트 추가. 각 뷰마다 이벤트 핸들러가 다 다름.
         binding.mainDrawerView.setNavigationItemSelectedListener {
-            it ->
+                it ->
             if (it.title == "로그인") {
-                Toast.makeText(this@TestPageRecyclerActivity, "로그인 화면 이동", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@TestPageRecyclerActivity,"로그인 화면 이동",Toast.LENGTH_SHORT).show()
             }
             else if (it.title == "로그아웃") {
-                Toast.makeText(this@TestPageRecyclerActivity, "로그아웃 화면 이동", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@TestPageRecyclerActivity,"로그아웃 화면 이동",Toast.LENGTH_SHORT).show()
             }
             else if (it.title == "메인가기") {
-                Toast.makeText(this@TestPageRecyclerActivity, "메인가기 화면 이동", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@TestPageRecyclerActivity,"메인가기 화면 이동",Toast.LENGTH_SHORT).show()
             }
             true
         }
 
-        // 드로워 화면에 액션 버튼 클릭 시 -> 드로워 화면에 나오게하기.
+        // 드로워 화면에 액션 버튼 클릭시 -> 드로워 화면에 나오게.
         toggle = ActionBarDrawerToggle(this@TestPageRecyclerActivity,
-            binding.drawer,R.string.open,R.string.close)
+            binding.drawer,R.string.open,R.string.close) //values에 있는 내용들만 name으로 접근(ex)R.string.open) / 나머지는 id로 접근함
+        // 화면에 붙이는 작업, 적용하기.
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // 버튼 클릭 시, 동기화, 드로워 화면을 열어주는 기능.
         toggle.syncState()
 
-
+        //4) floating action button
+        // 이벤트 추가하기.
+        binding.floatingActionButton.setOnClickListener {
+            when(binding.floatingActionButton.isExtended) {
+                true -> binding.floatingActionButton.shrink()
+                false -> binding.floatingActionButton.extend()
+            }
+            Toast.makeText(this@TestPageRecyclerActivity,"floatingActionButton 클릭됨", Toast.LENGTH_SHORT).show()
+        }
 
 
 
@@ -102,39 +109,61 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         }
 
 
-
-
-        // OnCreate 끝나는 부분.
+// OnCreate 끝나는 부분.
     }
-    // 토글 버튼 이벤트 추가.
-
+    // 토클 버튼 이벤트 추가.
+    // override fun onOptionsItemSelected(item: MenuItem): Boolean
 
 
     // 오버플로우 메뉴 이벤트 핸들러 추가하기.
     // 만약, 메뉴 교체 하면, 해당 아이디 다시 재정의하기.
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
-        R.id.menu_toolbar1 -> {
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //이벤트가 toggle 버튼에서 제공된거라면..
+        // 버튼을 열때 이용되는 이벤트 핸들러 부분.
+        if(toggle.onOptionsItemSelected(item)){
+            return true
+            // 오버 플로우 메뉴의 클릭시 이벤트를.
+        } else if ( R.id.menu_toolbar1 == item.itemId) {
             Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴1 클릭됨", Toast.LENGTH_SHORT).show()
             true
         }
-
-        R.id.menu_toolbar2 -> {
+        else if ( R.id.menu_toolbar2 == item.itemId) {
             Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴2 클릭됨", Toast.LENGTH_SHORT).show()
             true
         }
-
-        R.id.menu_toolbar3 -> {
+        else if ( R.id.menu_toolbar3 == item.itemId) {
             Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴3 클릭됨", Toast.LENGTH_SHORT).show()
             true
         }
 
-        /* R.id.menu_main4 -> {
-             Toast.makeText(this@Test11_ToolBarActivity,"메뉴4 클릭됨", Toast.LENGTH_SHORT).show()
-             true
-         }*/
-        // 람다식에서 return 사용 못함.
-        else -> super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(item)
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
+//
+//        R.id.menu_toolbar1 -> {
+//            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴1 클릭됨", Toast.LENGTH_SHORT).show()
+//            true
+//        }
+//
+//        R.id.menu_toolbar2 -> {
+//            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴2 클릭됨", Toast.LENGTH_SHORT).show()
+//            true
+//        }
+//
+//        R.id.menu_toolbar3 -> {
+//            Toast.makeText(this@TestPageRecyclerActivity,"툴바메뉴3 클릭됨", Toast.LENGTH_SHORT).show()
+//            true
+//        }
+//
+//        /* R.id.menu_main4 -> {
+//             Toast.makeText(this@Test11_ToolBarActivity,"메뉴4 클릭됨", Toast.LENGTH_SHORT).show()
+//             true
+//         }*/
+//        // 람다식에서 return 사용 못함.
+//        else -> super.onOptionsItemSelected(item)
+//    }
 
     // 검색 이벤트 핸들러 추가하는 부분.
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -150,7 +179,7 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 //검색어가 변경시 마다, 실행될 로직을 추가.
-                Log.d("lhs","텍스트 변경시 마다 호출 : ${newText} ")
+                Log.d("lsy","텍스트 변경시 마다 호출 : ${newText} ")
                 return true
             }
 
@@ -166,10 +195,6 @@ class TestPageRecyclerActivity : AppCompatActivity() {
     }
 
 
+
+
 }
-
-
-
-
-
-
