@@ -12,9 +12,19 @@
     그 하위에 자식 뷰가 2개인데,
     뷰1 본화면,
     뷰2 서랍 뷰 화면-->
+
+<!--    전체 scrollbar때문에, 리사이클러뷰 부분을 스크롤 했을 때,
+        앱바 부분이 새로운 AppBarTitle이라는 것에 들어가도록 생성하는
+        collapsingtoolbar 기능이 제대로 구현이 안됨
+        collapsingtoolbar:(여기에선 앱바와 리사이클러뷰를 묶음)
+        ScrollView 이 부분을 주석처리하면 잘 구현됨
+        그런데, 그러면 한 화면에 나머지 내용을 못 담게 되니, 이것을 해결하기 위해
+        새로 설정해서 만든 파일은 TestPageRecyclerActivity2이다.-->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <!--뷰1번 시작-->
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
@@ -29,17 +39,19 @@
                 android:orientation="vertical">
 
 
+               <!-- coordinatorlayout의 역할: 뷰 2개를 연동, 상호작용하게끔 묶어주는 역할-->
                 <androidx.coordinatorlayout.widget.CoordinatorLayout
                     android:layout_width="match_parent"
                     android:layout_height="500dp">
-                    <!--빠진 부분 수정-->
+                    <!--빠진 부분 수정 : 툴바 밑에ㅡ 앱의 소개나 특정의 화면을 나타낼 때-->
                     <com.google.android.material.appbar.AppBarLayout
                         android:id="@+id/appbar"
                         android:layout_width="match_parent"
                         android:layout_height="300dp">
                         <!--앱바를 구성하기 (툴바 포함하기.)-->
                         <!--일반 앱바 화면 -> 접히는 화면으로 변경.
-                        CollapsingToolbarLayout-->
+                        CollapsingToolbarLayout가 상호 작용하는 뷰를 연결시켜줌 :
+                        스크롤을 동작 시, 양쪽으로 스크롤 시 같이 동작함.-->
                         <com.google.android.material.appbar.CollapsingToolbarLayout
                             android:layout_width="match_parent"
                             android:layout_height="300dp"
@@ -52,6 +64,7 @@
                             app:expandedTitleMarginStart = "50dp"
 
                             >
+                            <!--app:contentScrim="#03A9F4": 한줄로 표시가 되었을 경우 나타나는 색깔-->
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -82,6 +95,9 @@
                         app:layout_behavior = "@string/appbar_scrolling_view_behavior"/>
 
                     <!--CoordinatorLayout 닫는 태그 -->
+<!--                자식의 요소가 2개인데, 1) AppBarLayout 2) RecyclerView
+                    2) RecyclerView의 속성 app:layout_behavior를 이용해서, 서로가 스크롤 시
+                    같이 움직임을 조절함-->
                 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
@@ -132,6 +148,8 @@
                     android:text="test"/>
 
 
+
+
             </LinearLayout>
 
             <!--플로팅 액션 버튼 추가하기-->
@@ -148,7 +166,10 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--뷰1번 끝-->
     </ScrollView>
+
+    <!--뷰2번 시작-->
     <!--위에 뷰가 기본 뷰1 -> 주내용
 
     뷰2는 서랍처럼 사용이 될 뷰2-->
@@ -171,4 +192,5 @@
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_menu"/>
 
+    <!--뷰2번 끝-->
 </androidx.drawerlayout.widget.DrawerLayout>

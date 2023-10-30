@@ -98,6 +98,12 @@ class TestPageRecyclerActivity : AppCompatActivity() {
         val customAdapter = RecyclerViewTest(datas)
         binding.recyclerViewTest.adapter = customAdapter
 
+
+        // 리사이클러 뷰2에 추가 붙이기 작업.
+        binding.recyclerViewTest.layoutManager = layoutManager
+        binding.recyclerViewTest.adapter = customAdapter
+
+
         binding.addBtn.setOnClickListener {
             datas.add("NEW DATA " + newDataNumber++)
             customAdapter.notifyItemInserted(datas.size)
