@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--드로워 화면 구성
+    기본은 : 최상위 부모는 드로워 화면 태그
+    그 하위에 자식 뷰가 2개인데,
+    뷰1: 본 화면,
+    뷰2: 서랍 뷰 화면-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ch11_Test.viewpageandrecyclerview.TestPageRecyclerActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,5 +70,20 @@
 
 
     </LinearLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--위에 뷰가 기본 뷰1 -> 주내용
+
+    뷰2는 서랍처럼 사용이 될 뷰2-->
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:text="테스트 서랍화면"
+        style="@style/MyTextCss"
+        android:gravity="center_horizontal |center_vertical"
+        android:layout_gravity="start"
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>
