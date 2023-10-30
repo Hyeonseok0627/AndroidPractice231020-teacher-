@@ -28,31 +28,59 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <!--앱바를 구성하기 (툴바 포함하기.)-->
-                <!--구글것이라 여기에서 바로 자동완성해서 가져올 수 있음-->
-                <com.google.android.material.appbar.AppBarLayout
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    app:title="AppBar Title"
-                    app:expandedTitleMarginBottom="50dp"
-                    app:expandedTitleMarginStart="50dp"
-                    >
-
-
-                <!--툴바 뷰 생성 -->
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-
-                    />
-                    <ImageView
+                    android:layout_height="500dp">
+                    <!--빠진 부분 수정-->
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appbar"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/kakao"/>
+                        android:layout_height="300dp">
+                        <!--앱바를 구성하기 (툴바 포함하기.)-->
+                        <!--일반 앱바 화면 -> 접히는 화면으로 변경.
+                        CollapsingToolbarLayout-->
+                        <com.google.android.material.appbar.CollapsingToolbarLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:background="@color/main_text_bgcolor"
+                            app:title="AppBar Title"
+                            app:expandedTitleTextColor="@color/main_text_color"
+                            app:expandedTitleMarginBottom = "50dp"
+                            app:expandedTitleMarginStart = "50dp"
 
-                </com.google.android.material.appbar.AppBarLayout>
+                            >
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/baking"
+                                app:layout_collapseMode="parallax"/>
+
+                            <!--툴바 뷰 생성 -->
+                            <androidx.appcompat.widget.Toolbar
+                                android:id="@+id/toolbar"
+                                android:layout_width="match_parent"
+                                android:layout_height="?attr/actionBarSize"
+                                app:layout_collapseMode = "pin"
+
+                                />
+
+
+                        </com.google.android.material.appbar.CollapsingToolbarLayout>
+                        <!--빠진 부분 수정-->
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <!--앱바 , 리사이클러뷰 연동 테스트 -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewTest"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        app:layout_behavior = "@string/appbar_scrolling_view_behavior"/>
+
+                    <!--CoordinatorLayout 닫는 태그 -->
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
                 <androidx.viewpager2.widget.ViewPager2
@@ -60,10 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewTest"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,6 +109,36 @@
                         android:text="데이터삭제"/>
 
                 </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"/>
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
