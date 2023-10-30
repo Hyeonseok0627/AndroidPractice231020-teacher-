@@ -36,7 +36,7 @@ class MyDecoration(val context: Context): RecyclerView.ItemDecoration() {
         //이미지 사이즈 계산
         val dr: Drawable? =
             // 포그라운드로 사용할 이미지 하나
-            ResourcesCompat.getDrawable(context.getResources(), R.drawable.larva, null)
+            ResourcesCompat.getDrawable(context.getResources(), R.drawable.dance, null)
         val drWidth = dr?.intrinsicWidth
         val drHeight = dr?.intrinsicHeight
         //이미지가 그려질 위치 계산 -> 정 중앙을 계산식으로 표현함.

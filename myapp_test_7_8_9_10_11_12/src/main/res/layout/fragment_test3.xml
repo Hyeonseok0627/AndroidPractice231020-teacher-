@@ -13,13 +13,13 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/bread">
+            android:src="@drawable/dance">
 
         </ImageView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="브레드"
+            android:text="댄스"
             style="@style/MyTextCss"/>
 
     </LinearLayout>

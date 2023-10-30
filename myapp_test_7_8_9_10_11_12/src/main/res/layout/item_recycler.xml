@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:src="@drawable/larva"></ImageView>
+        android:src="@drawable/kakao"></ImageView>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -23,14 +23,14 @@
             android:id="@+id/testText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="더미 데이터 라바"
+            android:text="더미 데이터 카카오"
             android:layout_marginBottom="5dp"
             style="@style/MyTextCss"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="더미 설명 라바"
+            android:text="더미 설명 카카오"
             style="@style/MyTextCss"></TextView>
 
     </LinearLayout>

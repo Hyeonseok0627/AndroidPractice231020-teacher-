@@ -8,7 +8,7 @@
             android:id="@+id/testText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="더미 데이터 라바"
+            android:text="더미 데이터 카카오"
             android:layout_marginBottom="5dp"
             style="@style/MyTextCss"></TextView>
 

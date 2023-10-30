@@ -20,7 +20,7 @@ class Test11_RecyclerViewActivity : AppCompatActivity() {
         // 원하는 뷰에 데이터를 넣는 , 바인딩 작업을 함.
         val datas = mutableListOf<String>()
         for(i in 1..10) {
-            datas.add("라바 $i")
+            datas.add("댄스 $i")
         }
         // 기본 값으로 세로 방향 출력.
 //        binding.recyclerView.layoutManager = LinearLayoutManager(this)
