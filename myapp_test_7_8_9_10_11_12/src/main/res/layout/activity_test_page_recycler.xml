@@ -32,8 +32,11 @@
                 <!--구글것이라 여기에서 바로 자동완성해서 가져올 수 있음-->
                 <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#3F51B5">
+                    android:layout_height="300dp"
+                    app:title="AppBar Title"
+                    app:expandedTitleMarginBottom="50dp"
+                    app:expandedTitleMarginStart="50dp"
+                    >
 
 
                 <!--툴바 뷰 생성 -->
@@ -41,10 +44,11 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    style="@style/MyToolBarCss"/>
+
+                    />
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="match_parent"
                         android:scaleType="fitCenter"
                         android:src="@drawable/kakao"/>
 
