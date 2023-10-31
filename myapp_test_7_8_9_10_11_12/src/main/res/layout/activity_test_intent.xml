@@ -44,10 +44,18 @@
             android:text="로그인하기"/>
 
         <Button
-            android:id="@+id/testBtn1"
+            android:id="@+id/testBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test"/>
+            android:text="후처리 테스트"/>
+
+        <TextView
+            android:id="@+id/resultData1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="30sp"
+            android:background="@color/main_text_color"/>
 
 
     </LinearLayout>

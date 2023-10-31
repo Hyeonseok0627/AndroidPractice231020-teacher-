@@ -33,6 +33,13 @@
             android:text=""
             style="@style/MyTextCss"/>
 
+        <Button
+            android:id="@+id/testBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="후처리 데이터 보내기"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

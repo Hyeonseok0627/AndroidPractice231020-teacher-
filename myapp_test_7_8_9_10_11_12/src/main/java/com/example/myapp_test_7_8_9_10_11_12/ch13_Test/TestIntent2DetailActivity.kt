@@ -30,5 +30,18 @@ class TestIntent2DetailActivity : AppCompatActivity() {
         binding.resulEmailtView.text = "패스워드 : $password"
         binding.resulAgetView.text = "나이 : $age"
 
+
+        // 후처리 데이터 보내기 작업.
+        binding.testBtn3.setOnClickListener {
+            intent.putExtra("resultData", "2번 화면에서 데이터 가져온 값.")
+            // 결과 코드 담기.
+            setResult(RESULT_OK, intent)
+            // 현재 앱을 종료하는 함수 -> 루트 액티비티가 아니면, finish() 호출 시, 모두 종료
+            // 예) 1번 화면(루트 액티비티)에서 -> 2번 화면(비루트 액티비티)으로 이동 시
+            finish()
+        }
+
+
+
     }
 }
