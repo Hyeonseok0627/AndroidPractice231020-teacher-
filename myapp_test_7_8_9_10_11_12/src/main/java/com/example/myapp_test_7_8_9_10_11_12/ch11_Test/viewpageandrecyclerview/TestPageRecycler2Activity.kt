@@ -42,11 +42,11 @@ class TestPageRecycler2Activity : AppCompatActivity() {
         // 3) 이벤트 핸들러 추가하기.
         // 각 아이템 요소 클릭 이벤트 추가. 각 뷰마다 이벤트 핸들러가 다 다름.
         binding.mainDrawerView.setNavigationItemSelectedListener {
-            it ->
+                it ->
             if (it.title == "로그인") {
                 Toast.makeText(this@TestPageRecycler2Activity,"로그인 화면 이동",Toast.LENGTH_SHORT).show()
             }
-           else if (it.title == "로그아웃") {
+            else if (it.title == "로그아웃") {
                 Toast.makeText(this@TestPageRecycler2Activity,"로그아웃 화면 이동",Toast.LENGTH_SHORT).show()
             }
             else if (it.title == "메인가기") {
@@ -187,7 +187,7 @@ class TestPageRecycler2Activity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 //검색어가 변경시 마다, 실행될 로직을 추가.
-                Log.d("lsy","텍스트 변경시 마다 호출 : ${newText} ")
+                Log.d("lhs","텍스트 변경시 마다 호출 : ${newText} ")
                 return true
             }
 
@@ -206,9 +206,3 @@ class TestPageRecycler2Activity : AppCompatActivity() {
 
 
 }
-
-
-
-
-
-
