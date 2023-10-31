@@ -85,13 +85,27 @@ class TestIntentActivity : AppCompatActivity() {
         // 예) 좌표값이다. 위도 경도 -> 지도 앱(외부 앱)
         // 예2) http 주소다. -> 웹 브라우저 앱 (외부 앱)
         binding.testBtn4.setOnClickListener {
-            // 지동 맵 열기 테스트.
+            // 지도 맵 열기 테스트.
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:37.7749,127.4194"))
             // 현재, 지도 관련 앱이 다양하게 없어서, 기본 앱: 구글 맵이 나옴.
             // 만약, 지도 관련 앱이 여러 개가 있다면, 특정 앱을 선택할 수 있음.
             // 사용하는 앱의 패키지명을 정확히 입력함.
             intent.setPackage("com.google.android.apps.maps")
             startActivity(intent)
+        }
+
+//크롬 외부앱 테스트
+        binding.testBtn5.setOnClickListener {
+            //지도 맵 열기 테스트.
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.data = Uri.parse("http://www.naver.com")
+            // 현재, 지도 관련 앱이 다양하게 없어서, 아마도 기본 앱: 구글 맵이 나옴.
+            // 만약, 지도 관련 앱이 여러 개 있다면, 특정 앱을 선택이 가능함.
+            // 사용하는 앱의 패키지명을 정확히 입력함.
+
+            startActivity(intent)
+
         }
 
 

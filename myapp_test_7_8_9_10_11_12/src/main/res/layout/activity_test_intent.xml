@@ -70,6 +70,12 @@
             android:layout_height="wrap_content"
             android:text="인텐트 필터를 이용한 외부앱 연동"/>
 
+        <Button
+            android:id="@+id/testBtn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인텐트 필터를 이용한 외부앱 크롬 연동2"/>
+
 
     </LinearLayout>
 
