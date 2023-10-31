@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
 
-        <!--CoordinatorLayout의 역할 뷰 2개를 연동, 상호작용 하게끔 묶어주는 역할-->
+        <!--CoordinatorLayout의 역할: 뷰 2개를 연동, 상호작용 하게끔 묶어주는 역할-->
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -87,8 +87,8 @@
 
             <!--CoordinatorLayout 닫는 태그 -->
             <!--자식의 요소가 2개인데, 1) AppBarLayout 2) RecyclerView
-            2) RecyclerView 속성 app:layout_behavior를 이용해서, 서로가 스클로시
-            같이 움직임을 조절할수 있음. -->
+            2) RecyclerView 속성 app:layout_behavior를 이용해서, 서로가 스크롤 시
+            같이 움직임을 조절할 수 있음. -->
 
 
 
@@ -116,7 +116,9 @@
                         android:id="@+id/Test2tabs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:tabMode="scrollable"></com.google.android.material.tabs.TabLayout>
+                        app:tabMode="scrollable">
+
+                    </com.google.android.material.tabs.TabLayout>
 
 
                     <androidx.viewpager2.widget.ViewPager2
@@ -239,6 +241,7 @@
             </ScrollView>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <!--coordinatorlayout: 자식의 요소가 2개인데, 1) AppBarLayout 2) RecyclerView-->
 
         <!--플로팅 액션 버튼 추가하기-->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
