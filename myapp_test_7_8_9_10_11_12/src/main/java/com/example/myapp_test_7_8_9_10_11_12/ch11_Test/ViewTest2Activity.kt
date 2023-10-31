@@ -13,6 +13,7 @@ import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.ch11_Test.viewpageandrecyclerview.adapter.RecyclerViewTest
 import com.example.myapp_test_7_8_9_10_11_12.ch11_Test.viewpageandrecyclerview.adapter.ViewPageAdapterTest
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityViewTest2Binding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ViewTest2Activity : AppCompatActivity() {
     lateinit var binding : ActivityViewTest2Binding
@@ -22,6 +23,26 @@ class ViewTest2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityViewTest2Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 탭 뷰와 뷰페이져2 연동.
+        val tabLayout = binding.Test2tabs
+        // 뷰페이져2 뷰 부분 선택.
+        val viewPager = binding.viewPager1
+
+
+        // 뷰페이져2를 연동 시 사용할 프래그먼트 어댑터 필요함.
+        // 기존꺼 재사용, ViewPageAdapterTest
+        // 어댑터 : 뷰에 필요한 데이터를 바인딩(연결 시켜주기)
+        // 어댑터의 더미 데이터 : 프래그먼트가 들어오고 있음, 각각의 프래그먼트가, 마치 리스트의 요소로, 인덱스=포지션으로 일치하면 됨
+        viewPager.adapter = ViewPageAdapterTest(this)
+
+        // TabLayoutMediator: 뷰페이져2, 탭 레이아웃 연결 시켜주는 기능.
+        TabLayoutMediator(tabLayout,viewPager) {
+                tab, position -> tab.text = "Tab${position+1}"
+        }.attach()
+
+
+
         binding.mainDrawerView.setNavigationItemSelectedListener {
                 it ->
             if (it.title == "로그인") {

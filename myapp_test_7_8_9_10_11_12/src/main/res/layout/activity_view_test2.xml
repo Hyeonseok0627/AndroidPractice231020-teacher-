@@ -111,11 +111,24 @@
                     android:orientation="vertical"
                     >
 
+                    <!--탭 추가-->
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/Test2tabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:tabMode="scrollable"></com.google.android.material.tabs.TabLayout>
+
+
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewPager1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
+
+                    <!--1)탭 뷰를 만들고
+                    2) 탭뷰를 기존의 페이져 2 화면에 붙이기 -->
+                    <!--기존의 뷰에 탭뷰 요소를 붙이거나,
+                    또는 새로운 탭뷰 + 뷰페이져2 붙이거나-->
 
 
 
