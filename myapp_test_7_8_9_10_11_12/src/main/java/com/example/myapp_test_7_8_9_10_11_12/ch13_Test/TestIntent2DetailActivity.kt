@@ -33,7 +33,8 @@ class TestIntent2DetailActivity : AppCompatActivity() {
 
         // 후처리 데이터 보내기 작업.
         binding.testBtn3.setOnClickListener {
-            intent.putExtra("resultData", "2번 화면에서 데이터 가져온 값.")
+            // 메세지 담기
+            intent.putExtra("resultData", "=======2번 화면에서 데이터 가져온 값.")
             // 결과 코드 담기.
             setResult(RESULT_OK, intent)
             // 현재 앱을 종료하는 함수 -> 루트 액티비티가 아니면, finish() 호출 시, 모두 종료
@@ -41,6 +42,16 @@ class TestIntent2DetailActivity : AppCompatActivity() {
             finish()
         }
 
+        // 후처리 데이터 보내기 방법2 작업.
+        binding.testBtn4.setOnClickListener {
+            // 메세지 담기
+            intent.putExtra("result","=========방법2: 넘어옴===============2번 화면에서 데이터 가져온 값.")
+            // 결과 코드 담기.
+            setResult(RESULT_OK, intent)
+            // 현재 앱을 종료하는 함수 -> 루트 액티비티가 아니면, finish() 호출시, 모두 종료
+            // 예) 1번화면(루트액티비티)에서 -> 2번화면(비루트 액티비티)으로 이동시
+            finish()
+        }
 
 
     }

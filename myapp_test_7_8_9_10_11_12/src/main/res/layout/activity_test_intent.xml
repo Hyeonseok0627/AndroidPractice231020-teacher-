@@ -49,6 +49,13 @@
             android:layout_height="wrap_content"
             android:text="후처리 테스트"/>
 
+        <Button
+            android:id="@+id/testBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="후처리 방법2 테스트"/>
+
+
         <TextView
             android:id="@+id/resultData1"
             android:layout_width="wrap_content"
@@ -56,6 +63,12 @@
             android:text=""
             android:textSize="30sp"
             android:background="@color/main_text_color"/>
+
+        <Button
+            android:id="@+id/testBtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인텐트 필터를 이용한 외부앱 연동"/>
 
 
     </LinearLayout>
