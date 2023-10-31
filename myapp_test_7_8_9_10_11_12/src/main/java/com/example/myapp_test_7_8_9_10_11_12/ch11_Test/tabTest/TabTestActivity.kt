@@ -25,10 +25,11 @@ class TabTestActivity : AppCompatActivity() {
         // 1. 탭 레이아웃이 그려지는, 빈 도화지(액티비티)
         // 2. 요소, 탭을 눌렀을 때 변경이 되는 요소가 필요.(프래그먼트를 이용함)
 
-        // 방법1) 코드상에서도 가능.
+        // 방법1) 코드상에서 요소를 추가하기.
         // Tab1, Tab2, Tab3, ...를 의미. 메뉴 개념.
         val tabLayout = binding.tabs
-        val tab1: TabLayout.Tab = tabLayout.newTab()
+
+/*      val tab1: TabLayout.Tab = tabLayout.newTab()
         tab1.text="Tab1"
         tabLayout.addTab(tab1)
 
@@ -38,7 +39,10 @@ class TabTestActivity : AppCompatActivity() {
 
         val tab3: TabLayout.Tab = tabLayout.newTab()
         tab3.text="Tab3"
-        tabLayout.addTab(tab3)
+        tabLayout.addTab(tab3)*/
+
+        // 방법2) 뷰에서 아이템 속성으로 요소를 추가하기.
+
 
 
 
