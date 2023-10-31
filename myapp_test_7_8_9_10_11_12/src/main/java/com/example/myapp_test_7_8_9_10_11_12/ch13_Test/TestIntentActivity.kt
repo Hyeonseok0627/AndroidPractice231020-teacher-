@@ -15,6 +15,9 @@ class TestIntentActivity : AppCompatActivity() {
     lateinit var binding : ActivityTestIntentBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.d("lhs","onCreate()")
+
         binding = ActivityTestIntentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -124,5 +127,34 @@ class TestIntentActivity : AppCompatActivity() {
             Log.d("lhs","넘어온 결과값 : $result")
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("lhs","onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("lhs","onResume()")
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("lhs","onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("lhs","onStop()")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("lhs","onDestroy()")
+    }
+
+
 
 }
