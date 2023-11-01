@@ -36,6 +36,7 @@ class TestBundleActivity : AppCompatActivity() {
         // 데이터 세터 , onDestroy()전에 저장하고.
         outState.putString("data1","Hello~~~~~")
         outState.putInt("data2", 20)
+        outState.putInt("data3", count)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -44,7 +45,9 @@ class TestBundleActivity : AppCompatActivity() {
         // 데이터 게터 onResume() 전에 불러오고
         val data1 = savedInstanceState.getString("data1")
         val data2 = savedInstanceState.getInt("data2")
+        val data3 = savedInstanceState.getInt("data3")
         binding.resultText.text = "$data1 - $data2"
+        binding.resultText2.text = " count 임시저장 값 $data3"
     }
 
     override fun onStart() {
