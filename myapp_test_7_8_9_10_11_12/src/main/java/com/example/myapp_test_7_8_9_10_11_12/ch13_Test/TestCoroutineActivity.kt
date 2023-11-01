@@ -81,7 +81,7 @@ class TestCoroutineActivity : AppCompatActivity() {
             // 무거운 작업에서 결과값을 받아서 출력을 함.
             val mainScope = GlobalScope.launch(Dispatchers.Main) {
                 channel.consumeEach {
-                    binding.resultCoView.text = "sum : $it"
+                    binding.resultCoView.text= "sum : $it"
                 }
             }
         }

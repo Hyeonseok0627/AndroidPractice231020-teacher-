@@ -22,6 +22,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
+            android:name=".ch16_Test.TestImageActivity"
+            android:exported="true" />
+        <!--
+        authorities 반드시 필요한 속성, 이 앱에 접근할 때
+         android:authorities="com.example.test1234" 이것이 암호처럼 사용이 될 예정
+        -->
+<!--        <provider
+            android:name=".ch16_Test.MyContentProvider"
+            android:authorities="com.example.test1234"
+            android:enabled="true"
+            android:exported="true" />-->
+
+        <activity
             android:name=".ch13_Test.TestCoroutineActivity"
             android:exported="true" />
         <activity
