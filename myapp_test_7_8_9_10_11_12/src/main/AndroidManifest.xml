@@ -29,7 +29,9 @@
             android:exported="true" />
         <activity
             android:name=".ch13_Test.TestIntentActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustUnspecified"/>
+        <!--adjustUnspecified : 기본값-->
         <activity
             android:name=".ch11_12_Test.tabTest.TabTest2Activity"
             android:exported="true" />
