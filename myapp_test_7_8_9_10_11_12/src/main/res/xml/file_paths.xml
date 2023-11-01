@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path
+        name="myfiles"
+        path="Android/data/com.example.myapp_test_7_8_9_10_11_12/files/Pictures"/>
+<!--    build.gradle의  defaultConfig { applicationId "com.example.myapp_test_7_8_9_10_11_12"
+    여기에 확인가능함(회사에선 여기에 도메인 주소가 있고 이 도메인 주소를 나중에 DB랑 연동할 때도 작성해줘야함-->
+    <!--즉, 카메라로 찍은 사진은 path 여기 해당 경로 파일에 저장이 됨, 그래서 여기 경로에 있는 이미지 파일을 외부에서 가져갈 때
+    암호를 맞춰서 컨텐츠 프로바이더로부터 허가 받은 후 접근해서 가져가는 것-->
+</paths>
