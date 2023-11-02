@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
+            android:name=".ch17_Test.SQLiteTest.DbTestActivity"
+            android:exported="true" />
+        <activity
             android:name=".ch16_Test.MultiImageRecyclerActivity"
             android:exported="true" />
         <activity
@@ -41,14 +44,11 @@
             android:authorities="com.example.test1234"
             android:enabled="true"
             android:exported="false"
-            android:grantUriPermissions="true" >
-
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/file_paths" />
-        </provider>
-        <!-- 여기 임시로 주석처리한 것은 위에 있는 아래 작업때문에 한것 -->
-
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider> <!-- 여기 임시로 주석처리한 것은 위에 있는 아래 작업때문에 한것 -->
         <!--
         <activity
             android:name=".ch16_Test.TestImageActivity"
