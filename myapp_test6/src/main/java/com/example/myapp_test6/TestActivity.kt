@@ -24,7 +24,7 @@ class TestActivity : AppCompatActivity() {
         //showBtn -> 클릭시 , 프로필 이미지 profileImg , 보이게
         // 특정 뷰를 선택하는 방법 2가지.
         // 1)-1 findViewById<>() 를 이용하는 방법
-        val showBtn:Button = findViewById(R.id.showBtn)
+//        val showBtn:Button = findViewById(R.id.showBtn)
         // 2)-1 viewBinding 를 이용하는 방법
         val showBtn2 = activityTestBinding.showBtn
         showBtn2.setOnClickListener {
@@ -42,7 +42,7 @@ class TestActivity : AppCompatActivity() {
         //1)-3
         // 특정 뷰를 선택하는 방법 2가지.
         // 1)-1 findViewById<>() 를 이용하는 방법
-        val hideBtn:Button = findViewById(R.id.hideBtn)
+//        val hideBtn:Button = findViewById(R.id.hideBtn)
 
 //        hideBtn.setOnClickListener {
 //            val profilImg : ImageView = findViewById(R.id.profileImg)
@@ -80,6 +80,8 @@ class TestActivity : AppCompatActivity() {
 
         // 라디오 버튼 체크 확인.
         activityTestBinding.radio1.setOnCheckedChangeListener { buttonView, isChecked ->
+            // // 라디오 버튼 값 가져오는 샘플
+            val test = buttonView.text.toString()
             Toast.makeText(this@TestActivity,"남자 클릭됨",Toast.LENGTH_SHORT).show()
         }
 

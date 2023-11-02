@@ -22,6 +22,11 @@ import java.util.Date
 class JoinActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinBinding
+    // 현재, 카메라에서만, 촬영후, 물리 이미지를 만들어서,
+    // 각 앱의 내부 저장소에 저장하고, 저장된 위치를 담은 변수.
+    //
+    // 미구현
+    // 갤러리에서 선택된 사진의 , Uri 주소를 가져와서 -> filePath 담기.
     lateinit var filePath : String
 
     //회원가입 추가 부분
@@ -176,10 +181,10 @@ class JoinActivity : AppCompatActivity() {
         Log.d("lhs","file.absolutePath : $filePath")
 
         //콘텐츠 프로바이더를 이용해서, 데이터를 가져와야 함.
+        // provider에서 정한 authorities 값이 필요함.
+        // 매니페스트 파일에 가서,
         val photoURI : Uri = FileProvider.getUriForFile(
             this,
-            // provider에서 정한 authorities 값이 필요함.
-            // 매니페스트 파일에 가서,
             "com.example.myapp_test6.fileprovider",
             file
         )
@@ -193,11 +198,11 @@ class JoinActivity : AppCompatActivity() {
         requestCameraFileLauncher.launch(intent)
 
     }
-
+        // 회원가입 버튼 클릭시, 회원 가입 하는 함수 호출
         binding.buttonInsert.setOnClickListener {
             AddData()
         }
-
+        // 조회하는 뷰에 페이지 이동.
         binding.buttonGetUser.setOnClickListener {
             val intent = Intent(this@JoinActivity,UserTableActivity::class.java)
             startActivity(intent)

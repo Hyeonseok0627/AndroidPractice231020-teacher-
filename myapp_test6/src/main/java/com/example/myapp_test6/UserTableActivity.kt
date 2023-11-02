@@ -14,8 +14,12 @@ import com.example.myapp_test6.model.User
 
 class UserTableActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserTableBinding
+    //조회시 사용했던, 전역 변수들
+    // 회원가입된 회원들을 담을 리스트.
     var list = ArrayList<User>()
+    // 출력을 리사이클러뷰를 사용해서, 준비물) 1)어댑터 2) 뷰홀더 3) 목록요소의 뷰
     var adapter = MultiImageAdapter(list,this)
+    // 특정 버튼, 디비 접근 인스턴스, 전역.
     var getUserBtn: Button? = null
     var myDB: DatabaseHelper? = null
 
