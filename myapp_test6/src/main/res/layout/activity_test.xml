@@ -99,7 +99,7 @@
                 android:maxWidth="150dp"
                 android:maxHeight="150dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/larva"/>
+                android:src="@drawable/baking"/>
             <LinearLayout
                 android:layout_width="200dp"
                 android:layout_height="100dp"

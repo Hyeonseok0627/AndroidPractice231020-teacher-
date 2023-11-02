@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ch16_Test.MultiImageRecyclerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--기존에 카메라,갤러리 버튼 및 결과 뷰를 재사용-->
+        <Button
+            android:id="@+id/multiGalleryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="갤러리 멀티 사진 픽"
+            android:textSize="20sp"/>
+        <!--리사이클러뷰를 붙이는 공간-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/multiImagePickRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

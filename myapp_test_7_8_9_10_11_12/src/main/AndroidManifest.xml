@@ -23,39 +23,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
+            android:name=".ch16_Test.MultiImageRecyclerActivity"
+            android:exported="true" />
+        <activity
             android:name=".ch16_Test.TestImageActivity"
             android:exported="true" />
         <!--
         authorities 반드시 필요한 속성, 이 앱에 접근할 때
          android:authorities="com.example.test1234" 이것이 암호처럼 사용이 될 예정
         -->
-
-        <!--저장소 위치를 정하기.-->
-        <!--해당 uri 위치에 접근 허가 필요-->
-        <!--카메라 작업하면서 다시 주석 해제-->
-        <!--name 시스템으로 변경하기-->
+        <!-- 저장소 위치를 정하기. -->
+        <!-- 해당 uri 위치에 접근 허가 필요 -->
+        <!-- 카메라 작업하면서 다시 주석 해제 -->
+        <!-- name 시스템으로 변경하기 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.test1234"
             android:enabled="true"
             android:exported="false"
-            android:grantUriPermissions="true"/>
-        <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/file_paths"></meta-data>
+            android:grantUriPermissions="true" >
 
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+        </provider>
+        <!-- 여기 임시로 주석처리한 것은 위에 있는 아래 작업때문에 한것 -->
 
-
-        <!--여기 임시로 주석처리한 것은 위에 있는 아래 작업때문에 한것-->
-<!--        <activity
+        <!--
+        <activity
             android:name=".ch16_Test.TestImageActivity"
-            android:exported="true" />-->
-
-<!--        <provider
+            android:exported="true" />
+        -->
+        <!--
+        <provider
             android:name=".ch16_Test.MyContentProvider"
             android:authorities="com.example.test1234"
             android:enabled="true"
-            android:exported="true" />-->
-
+            android:exported="true" />
+        -->
         <activity
             android:name=".ch13_Test.TestCoroutineActivity"
             android:exported="true" />
