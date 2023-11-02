@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.MyApplication_231020_test1" parent="Base.Theme.MyApplication_231020_test1" />
+
+    <style name="MyTextCss">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:background">@color/main_text_bgcolor</item>
+        <item name="android:fontFamily">@font/bmyeonsung</item>
+    </style>
+
 </resources>
