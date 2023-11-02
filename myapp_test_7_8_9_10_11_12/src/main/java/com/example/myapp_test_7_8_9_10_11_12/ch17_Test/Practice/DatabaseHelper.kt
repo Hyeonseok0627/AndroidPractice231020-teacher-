@@ -1,10 +1,11 @@
-package com.example.myapp_test_7_8_9_10_11_12.ch17_Test.SQLiteTest
+package com.example.myapp_test_7_8_9_10_11_12.ch17_Test.Practice
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+
 
 //출처: https://jw0652.tistory.com/590
 // 변경 사항은, 자바 -> 코틀린 형식으로 변경.
@@ -42,16 +43,17 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
     }
 
     // 데이터베이스 추가하기 insert
-    fun insertData(name: String?, phone: String?, address: String?): Boolean {
+    fun insertData(nick: String?, name: String?, email: String?, password: String?): Boolean {
         // 디비 사용시 쓰기, 수정, 삭제 ->writableDatabase 사용함.
         val db = this.writableDatabase
         // execSQL -> 대신에 ContentValues() 를 이용하면
         // SQL  문장 없이, 바로 메서드에 값만 인자로 넣어서
         // 이용하면, 쉽게 insert를 구현가능.
         val contentValues = ContentValues()
-        contentValues.put(COL_2, name) //contentValues : 생성자, 이 생성자 이용해서 setter하여 key, value를 넣는 것
-        contentValues.put(COL_3, phone)
-        contentValues.put(COL_4, address)
+        contentValues.put(COL_2, nick)
+        contentValues.put(COL_3, name) //contentValues : 생성자, 이 생성자 이용해서 setter하여 key, value를 넣는 것
+        contentValues.put(COL_4, email)
+        contentValues.put(COL_5, password)
         val result = db.insert(TABLE_NAME, null, contentValues)
         return if (result == -1L) false else true
     }
@@ -72,13 +74,14 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
     }
 
     //데이터베이스 수정하기
-    fun updateData(id: String, name: String?, phone: String?, address: String?): Boolean {
+    fun updateData(id: String, nick: String?, name: String?, email: String?, password: String?): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COL_1, id)
-        contentValues.put(COL_2, name)
-        contentValues.put(COL_3, phone)
-        contentValues.put(COL_4, address)
+        contentValues.put(COL_2, nick)
+        contentValues.put(COL_3, name)
+        contentValues.put(COL_4, email)
+        contentValues.put(COL_5, password)
         db.update(TABLE_NAME, contentValues, "ID = ?", arrayOf(id))
         return true
     }
@@ -87,13 +90,14 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
     companion object {
         // DatabaseHelper 클래스명 -> mydb
         // mydb.DATABASE_NAME -> 사용가능.
-        const val DATABASE_NAME = "STUDENT.db" // 데이터베이스 명
-        const val TABLE_NAME = "student_table" // 테이블 명
+        const val DATABASE_NAME = "CUSTOMER.db" // 데이터베이스 명
+        const val TABLE_NAME = "customer_table" // 테이블 명
 
         // 테이블 항목
         const val COL_1 = "ID"
-        const val COL_2 = "Name"
-        const val COL_3 = "Phone"
-        const val COL_4 = "Address"
+        const val COL_2 = "Nick"
+        const val COL_3 = "Name"
+        const val COL_4 = "Email"
+        const val COL_5 = "Password"
     }
 }

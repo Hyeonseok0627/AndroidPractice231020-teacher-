@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
         <activity
+            android:name=".ch17_Test.Practice.JoinDbTestActivity"
+            android:exported="true" />
+        <activity
             android:name=".ch17_Test.SQLiteTest.DbTestActivity"
             android:exported="true" />
         <activity

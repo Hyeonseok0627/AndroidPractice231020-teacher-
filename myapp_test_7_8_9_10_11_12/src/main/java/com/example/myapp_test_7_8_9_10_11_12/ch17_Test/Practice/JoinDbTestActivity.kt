@@ -1,27 +1,26 @@
-package com.example.myapp_test_7_8_9_10_11_12.ch17_Test.SQLiteTest
+package com.example.myapp_test_7_8_9_10_11_12.ch17_Test.Practice
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.myapp_test_7_8_9_10_11_12.R
-import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityDbTestBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityJoinDbTestBinding
 
-
-class DbTestActivity : AppCompatActivity() {
+class JoinDbTestActivity : AppCompatActivity() {
     // 전역으로 선언만 했지, 할당을 안했음.
     // 그래서, onCreate 라는 함수에서 , 최초 1회 실행시.
     // 할당을 하는 구조.
     var myDB: DatabaseHelper? = null
 
-    lateinit var binding: ActivityDbTestBinding
+    lateinit var binding: ActivityJoinDbTestBinding
     // 전역으로 쓰기 위해 여기에 전역변수로 작성함
+    var editTextNick: EditText? = null
     var editTextName: EditText? = null
-    var editTextPhone: EditText? = null
-    var editTextAddress: EditText? = null
+    var editTextEmail: EditText? = null
+    var editTextPassword: EditText? = null
     var editTextID: EditText? = null
     var buttonInsert: Button? = null
     var buttonView: Button? = null
@@ -31,7 +30,7 @@ class DbTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 // 전역에 선언된 변수들을 할당하는 구조.
-        binding = ActivityDbTestBinding.inflate(layoutInflater)
+        binding = ActivityJoinDbTestBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 //        setContentView(R.layout.activity_main)
@@ -41,9 +40,10 @@ class DbTestActivity : AppCompatActivity() {
 
         // 자바 버전에 코드 -> 코틀린 변경.
         // findViewById ->  바인딩 기법으로 사용했음.
+        editTextNick = binding.editTextNick
         editTextName = binding.editTextName
-        editTextPhone = binding.editTextPhone
-        editTextAddress = binding.editTextAddress
+        editTextEmail = binding.editTextEmail
+        editTextPassword = binding.editTextPassword
         editTextID = binding.editTextID
         buttonInsert = binding.buttonInsert
         buttonView = binding.buttonView
@@ -64,14 +64,15 @@ class DbTestActivity : AppCompatActivity() {
     fun AddData() {
         buttonInsert!!.setOnClickListener {
             val isInserted = myDB!!.insertData(
+                editTextNick!!.text.toString(),
                 editTextName!!.text.toString(),
-                editTextPhone!!.text.toString(),
-                editTextAddress!!.text.toString()
+                editTextEmail!!.text.toString(),
+                editTextPassword!!.text.toString()
             )
             if (isInserted == true)
-                Toast.makeText(this@DbTestActivity, "데이터추가 성공", Toast.LENGTH_LONG)
+                Toast.makeText(this@JoinDbTestActivity, "데이터추가 성공", Toast.LENGTH_LONG)
                     .show()
-            else Toast.makeText(this@DbTestActivity, "데이터추가 실패", Toast.LENGTH_LONG).show()
+            else Toast.makeText(this@JoinDbTestActivity, "데이터추가 실패", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -104,20 +105,26 @@ class DbTestActivity : AppCompatActivity() {
     """.trimIndent()
                 )
                 buffer.append(
+                        """
+    아이디: ${res.getString(1)} 
+    
+    """.trimIndent()
+                        )
+                buffer.append(
                     """
-    이름: ${res.getString(1)}
+    이름: ${res.getString(2)}
     
     """.trimIndent()
                 )
                 buffer.append(
                     """
-    전화번호: ${res.getString(2)}
+    이메일: ${res.getString(3)}
     
     """.trimIndent()
                 )
                 buffer.append(
                     """
-    주소: ${res.getString(3)}
+    주소: ${res.getString(4)}
     
     
     """.trimIndent()
@@ -132,14 +139,15 @@ class DbTestActivity : AppCompatActivity() {
         buttonUpdate!!.setOnClickListener {
             val isUpdated = myDB!!.updateData(
                 editTextID!!.text.toString(),
+                editTextNick!!.text.toString(),
                 editTextName!!.text.toString(),
-                editTextPhone!!.text.toString(),
-                editTextAddress!!.text.toString()
+                editTextEmail!!.text.toString(),
+                editTextPassword!!.text.toString()
             )
             if (isUpdated == true)
-                Toast.makeText(this@DbTestActivity, "데이터 수정 성공", Toast.LENGTH_LONG)
+                Toast.makeText(this@JoinDbTestActivity, "데이터 수정 성공", Toast.LENGTH_LONG)
                     .show()
-            else Toast.makeText(this@DbTestActivity, "데이터 수정 실패", Toast.LENGTH_LONG)
+            else Toast.makeText(this@JoinDbTestActivity, "데이터 수정 실패", Toast.LENGTH_LONG)
                 .show()
         }
     }
@@ -149,9 +157,9 @@ class DbTestActivity : AppCompatActivity() {
         buttonDelete!!.setOnClickListener {
             val deleteRows = myDB!!.deleteData(editTextID!!.text.toString())
             if (deleteRows > 0)
-                Toast.makeText(this@DbTestActivity, "데이터 삭제 성공", Toast.LENGTH_LONG)
+                Toast.makeText(this@JoinDbTestActivity, "데이터 삭제 성공", Toast.LENGTH_LONG)
                     .show()
-            else Toast.makeText(this@DbTestActivity, "데이터 삭제 실패", Toast.LENGTH_LONG)
+            else Toast.makeText(this@JoinDbTestActivity, "데이터 삭제 실패", Toast.LENGTH_LONG)
                 .show()
         }
     }
