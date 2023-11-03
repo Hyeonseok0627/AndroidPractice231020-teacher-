@@ -10,7 +10,7 @@ class SharedPrefTestActivity : AppCompatActivity() {
     // 1번 화면
     // val test = 공유프리퍼런스 파일에 데이터 담기
     // 공유프리퍼런스 파일 => 모든 액티비티 화면에서 접근이 가능함.
-    // EditText 뷰에서,
+    // EditText 뷰에서,ㅅ
     // 라디오 뷰에서,
     // 각 뷰에서, 데이터를 가져와서, (마치 회원가입 하듯이)
     // test에 저장.
