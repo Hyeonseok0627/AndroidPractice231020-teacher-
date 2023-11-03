@@ -79,6 +79,7 @@ class TestActivity : AppCompatActivity() {
         }
 
         // 라디오 버튼 체크 확인.
+        // setOnCheckedChangeListener: 변경이 감지되면 {} 이 안에 내용이 동작
         activityTestBinding.radio1.setOnCheckedChangeListener { buttonView, isChecked ->
             // // 라디오 버튼 값 가져오는 샘플
             val test = buttonView.text.toString()
