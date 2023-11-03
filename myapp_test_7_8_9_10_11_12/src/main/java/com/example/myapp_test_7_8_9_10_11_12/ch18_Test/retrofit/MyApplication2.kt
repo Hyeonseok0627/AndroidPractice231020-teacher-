@@ -12,10 +12,10 @@ import retrofit2.create
 // 메모리 등록이 되어서 사용하기 편함.
 class MyApplication2 : Application(){
 
-    companion object {
+
         val QUERY = "travel"
         val QUERY2 = "Apple"
-        val from ="2023-05-22"
+        val from ="2023-10-10"
         val sortBy ="popularity"
         val API_KEY = "87af28a1123a4fcc9c869c0b81bd243c"
         val BASE_URL = "https://newsapi.org"
@@ -35,6 +35,6 @@ class MyApplication2 : Application(){
         init {
             networkService = retrofit.create(INetworkService2::class.java)
         }
-    }
+
 
 }
