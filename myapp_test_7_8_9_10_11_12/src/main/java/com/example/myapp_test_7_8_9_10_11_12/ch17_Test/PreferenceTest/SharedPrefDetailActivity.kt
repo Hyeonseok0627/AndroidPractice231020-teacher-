@@ -34,6 +34,14 @@ class SharedPrefDetailActivity : AppCompatActivity() {
             binding.resultEmailSP.text = email
             binding.resultPasswordSP.text = password
 
+            // 삭제 테스트1 - 부분 삭제
+            binding.deleteSharedPreferBtnTest.setOnClickListener {
+                val pref = getSharedPreferences("userInfo", MODE_PRIVATE)
+                val editor = pref.edit()
+                editor.remove("email")
+                editor.remove("password")
+                editor.commit()
+            }
 
         }
     }
