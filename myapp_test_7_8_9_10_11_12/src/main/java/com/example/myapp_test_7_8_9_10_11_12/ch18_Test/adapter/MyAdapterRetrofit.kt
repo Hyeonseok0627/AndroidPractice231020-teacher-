@@ -1,9 +1,11 @@
 package com.example.myapp_test_7_8_9_10_11_12.ch18_Test.adapter
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.model.UserModel
 import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.retrofit.MyApplication
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ItemRetrofitBinding
@@ -67,6 +69,8 @@ class MyAdapterRetrofit(val context : Context, val datas : List<UserModel>?)
 //        val avatarImageCall = (context.applicationContext as MyApplication).getAvatarImage(user.avatar)
 
         // 이미지 가져오는 함수.
+        // 방법1)
+        // 네트워크 함수 통해서 처리하는 부분, 방법1)
         val avatarImageCall =
             user?.let {
                 (context.applicationContext as MyApplication)
@@ -77,13 +81,39 @@ class MyAdapterRetrofit(val context : Context, val datas : List<UserModel>?)
         avatarImageCall?.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 // 이미지를 가져오기 성공시
+                // response, 사진 데이터가 들어있음.
+                if (response.isSuccessful) {
+
+                    if(response.body() !=null) {
+                        val bitmap = BitmapFactory.decodeStream(response.body()!!.byteStream())
+                        // 방법1
+                        binding.retrofitProfileImg.setImageBitmap(bitmap)
+
+                        // 방법2, glide 사용.
+                        Glide.with(context)
+                            .load(bitmap)
+                            .override(100,100)
+                            .into(binding.retrofitProfileImg)
+                    }
+                }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 // 이미지를 가져오기 실패시
+                call.cancel()
             }
 
         })
+        // 네트워크 함수 통해서 처리하는 부분, 방법1)
+
+        // glide 통해서, 이미지를 직접 가져와서 처리하는 부분.
+        // 방법2)
+//        Glide.with(context)
+//            // load 실제 URL 주소 직접 넣기
+//            .load(user?.avatar)
+//            .override(100,100)
+//            .into(binding.retrofitProfileImg)
+
     }
 
 }
