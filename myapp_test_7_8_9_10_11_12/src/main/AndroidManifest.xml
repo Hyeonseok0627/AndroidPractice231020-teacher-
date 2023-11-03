@@ -16,8 +16,6 @@
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> <!-- 외부 통신 하기 위해서 인터넷 퍼미션 추가하기 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--네트워크 서비스를 애플리케이션에 미리 등록해서 사용함-->
-    <!--그러기 위해서 여기에 android:name=".ch18_Test.retrofit.MyApplication" 이것처럼 추가함-->
     <application
         android:name=".ch18_Test.retrofit.MyApplication"
         android:allowBackup="true"
@@ -26,6 +24,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication_231020_test1">
+        <activity
+            android:name=".ch18_Test.NewsApiTestActivity"
+            android:exported="false" />
         <activity
             android:name=".ch18_Test.HttpTestReqResActivity"
             android:exported="true" />
