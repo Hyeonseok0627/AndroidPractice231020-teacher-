@@ -7,4 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".ch18_Test.HttpTestReqResActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="reqres.in 사이트 유저 가져오기 테스트"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+        <!--리사이클러뷰 먼저 붙이기-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/retrofitRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
