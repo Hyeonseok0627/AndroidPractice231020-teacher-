@@ -3,7 +3,6 @@ package com.example.myapp_test_7_8_9_10_11_12.ch18_Test
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.myapp_test_7_8_9_10_11_12.R
 import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.model.UserListModel
 import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.retrofit.MyApplication
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityHttpTestReqResBinding
@@ -67,12 +66,16 @@ class HttpTestReqResActivity : AppCompatActivity() {
         // applicationContext 안에 우리가 등록한 설정이 있고,
         // as MyApplication -> 형 변환
         // 형변환 된 인스턴스 내부에 networkService를 사용하기.
-        val networkService = (applicationContext as MyApplication)
+        val networkService = (applicationContext as MyApplication).networkService
 
         // 2) 호출하는 함수 콜 만들기. 우리가 만든 인터페이스에 등록된
         // 추상 함수를 이용함. 인자값은 페이지 번호 정의를 문자열 타입으로 했음.
         val userListCall = networkService.doGetUserList("2")
-
+        //doGetUserList 이것을 못 불러오는 것은 
+        // val networkService = (applicationContext as MyApplication).networkService 여기서
+        // .networkService 붙여줘야 함
+        
+        
         // 실제 통신이 시작이 되는 부분, 이 함수를 통해서 데이터를 받아옴.
         userListCall.enqueue(object : Callback<UserListModel> {
             // 익명 클래스가, Callback, 레트로핏2에서 제공하는 인터페이스를 구현했고,
