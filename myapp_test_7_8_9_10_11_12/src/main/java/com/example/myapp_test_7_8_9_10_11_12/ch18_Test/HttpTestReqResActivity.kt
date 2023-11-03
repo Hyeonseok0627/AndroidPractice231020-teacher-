@@ -2,8 +2,14 @@ package com.example.myapp_test_7_8_9_10_11_12.ch18_Test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.myapp_test_7_8_9_10_11_12.R
+import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.model.UserListModel
+import com.example.myapp_test_7_8_9_10_11_12.ch18_Test.retrofit.MyApplication
 import com.example.myapp_test_7_8_9_10_11_12.databinding.ActivityHttpTestReqResBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HttpTestReqResActivity : AppCompatActivity() {
     lateinit var binding : ActivityHttpTestReqResBinding
@@ -49,7 +55,43 @@ class HttpTestReqResActivity : AppCompatActivity() {
 //                "avatar": "https://reqres.in/img/faces/8-image.jpg"
 //            },
 
-        // 작업 순서2
+        // 작업 순서2 : 네트워크 인터페이스 정의하기.
+
+        // 작업 순서3 : MyApplication, baseurl 등록, 우리가 만든 인터페이스 연결.
+        // 매니페스트에 등록해서, 앱이 실행 시, 선언 및 초기화 자동으로 되고,
+        // 바로 사용만 하면 됨.
+
+        // 작업 순서4 : 일단, retrofit 통신 이용해서 데이터가 전달하는지의 유무 확인.
+        // 데이터 가져오기
+        // 1)
+        // applicationContext 안에 우리가 등록한 설정이 있고,
+        // as MyApplication -> 형 변환
+        // 형변환 된 인스턴스 내부에 networkService를 사용하기.
+        val networkService = (applicationContext as MyApplication)
+
+        // 2) 호출하는 함수 콜 만들기. 우리가 만든 인터페이스에 등록된
+        // 추상 함수를 이용함. 인자값은 페이지 번호 정의를 문자열 타입으로 했음.
+        val userListCall = networkService.doGetUserList("2")
+
+        // 실제 통신이 시작이 되는 부분, 이 함수를 통해서 데이터를 받아옴.
+        userListCall.enqueue(object : Callback<UserListModel> {
+            // 익명 클래스가, Callback, 레트로핏2에서 제공하는 인터페이스를 구현했고,
+            // 반드시 재정의해야하는 함수들이 있음.(object를 눌러서 implement를 눌러서 두개 선택 후 ok하면 됨)
+            override fun onResponse(call: Call<UserListModel>, response: Response<UserListModel>) {
+//                데이터를 성공적으로 받았을 때 수행되는 함수
+                val userList = response.body()
+                Log.d("lhs", "userList의 값 : ${userList?.data}") // 데이터 못받는 null상태가 될수도 있어서 ?.사용
+                // 데이터를 성공적으로 받았다면, 여기서 리사이클러 뷰 어댑터에 연결하면 됨
+            }
+
+            override fun onFailure(call: Call<UserListModel>, t: Throwable) {
+                // 데이터를 못 받았을 때 수행되는 함수
+                call.cancel()
+            }
+        })
+
+
+        // 작업 순서 5 : 리사이클러뷰에 넣는 작업, 재사용.
 
     }
     // OnCreate
